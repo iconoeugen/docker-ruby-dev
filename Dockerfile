@@ -2,7 +2,7 @@ FROM iconoeugen/fedora-dev:latest
 MAINTAINER info@vlad.eu
 
 # install things globally, for great justice
-ENV GEM_HOME /usr/local/bundle
+ENV GEM_HOME $HOME/.gems
 ENV PATH $GEM_HOME/bin:$PATH
 
 # don't create ".bundle" in all our apps
