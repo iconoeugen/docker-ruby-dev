@@ -1,4 +1,4 @@
-FROM iconoeugen/fedora-dev:latest
+FROM iconoeugen/fedora-dev:30
 MAINTAINER info@vlad.eu
 
 # install things globally, for great justice
@@ -11,8 +11,9 @@ ENV BUNDLE_APP_CONFIG $GEM_HOME
 ENV RUBY_VERSION=2.4.5
 
 RUN dnf -y install gcc-c++ readline-devel re2-devel && \
-    dnf -y install ruby ruby-devel rubygem-bundler && \
-    dnf clean all
+    dnf -y install ruby ruby-devel rubygem-bundler rubygem-rake && \
+    dnf clean all && \
+    rm -rf /var/cache/yum
 
 #RUN mkdir -p /tmp/build && \
 #    curl https://cache.ruby-lang.org/pub/ruby/2.4/ruby-${RUBY_VERSION}.tar.gz | tar xvz -C /tmp/build && \
